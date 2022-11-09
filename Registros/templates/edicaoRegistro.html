@@ -1,0 +1,28 @@
+{% extends "./base.html" %}
+
+{% block title %} Gestão de Registros {% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edição de Registro</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/alterarRegistro/{{registros.id}}" method="POST">{% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" id="txtNome" name="txtNome" value="{{registros.nome}}" class="form-control" placeholder="Nome"
+                            maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="txtTelefone" name="txtTelefone" value="{{registros.telefone}}" class="form-control" placeholder="Telefone"
+                            maxlength="50" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-block text-white">OK</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
